@@ -1,0 +1,54 @@
+{
+  "name": "lan_scanner",
+  "display_name": "LAN IP Scanner",
+  "description": "Discovers all active devices on the local network via ARP/ping scanning",
+  "version": "1.0.0",
+  "author": "Rali",
+  "enabled": true,
+  "api_prefix": "/api/plugins/lan_scanner",
+  "scheduled_tasks": [
+    {
+      "task_id": "periodic_lan_scan",
+      "interval_seconds": 300,
+      "description": "Scan local network every 5 minutes"
+    }
+  ],
+  "frontend": {
+    "icon": "Wifi",
+    "sidebar_label": "LAN Scanner",
+    "sidebar_order": 10,
+    "route_path": "/lan-scanner",
+    "widgets": [
+      {
+        "widget_id": "scan_summary",
+        "widget_type": "status",
+        "title": "Network Summary",
+        "data_endpoint": "/api/plugins/lan_scanner/summary",
+        "refresh_event": "lan_scanner:scan_complete"
+      },
+      {
+        "widget_id": "device_history_chart",
+        "widget_type": "chart",
+        "title": "Device Count Over Time",
+        "chart_type": "line",
+        "data_endpoint": "/api/plugins/lan_scanner/history",
+        "refresh_event": "lan_scanner:scan_complete"
+      },
+      {
+        "widget_id": "device_table",
+        "widget_type": "table",
+        "title": "Discovered Devices",
+        "data_endpoint": "/api/plugins/lan_scanner/devices",
+        "columns": [
+          { "key": "ip_address", "label": "IP Address", "sortable": true },
+          { "key": "mac_address", "label": "MAC Address", "sortable": true },
+          { "key": "hostname", "label": "Hostname", "sortable": true },
+          { "key": "vendor", "label": "Vendor", "sortable": true },
+          { "key": "status", "label": "Status", "sortable": true },
+          { "key": "last_seen", "label": "Last Seen", "sortable": true }
+        ],
+        "refresh_event": "lan_scanner:scan_complete"
+      }
+    ]
+  }
+}

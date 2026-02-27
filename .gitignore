@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+backend/data/
+*.db
+.env
+node_modules/
+dist/
+.vite/
+.DS_Store

@@ -1,0 +1,17 @@
+{
+  "name": "my_plugin",
+  "display_name": "My Plugin",
+  "description": "A template for creating new plugins",
+  "version": "1.0.0",
+  "author": "",
+  "enabled": true,
+  "api_prefix": "/api/plugins/my_plugin",
+  "scheduled_tasks": [],
+  "frontend": {
+    "icon": "Box",
+    "sidebar_label": "My Plugin",
+    "sidebar_order": 100,
+    "route_path": "/my-plugin",
+    "widgets": []
+  }
+}
