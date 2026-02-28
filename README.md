@@ -11,6 +11,8 @@ A modular, real-time home network dashboard built with **FastAPI** and **React**
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+**[中文文档](./README_CN.md)**
+
 ## Features
 
 - **Plugin Architecture** - Drop-in plugins with auto-discovery, each with its own routes, database models, scheduled tasks, and frontend widgets
